@@ -10,7 +10,8 @@ PAGE_ACCESS_TOKEN="EAAjgLoiA3iQBACaRnrG1H516aHfsx8KZBGqqX5lK4YWuAwiLnUCQ18cG0bqC
 
 bot=Bot(PAGE_ACCESS_TOKEN)
 
- payload = {
+
+payload = {
     "recipient":{
     "id":"<PSID>"
     },
@@ -45,7 +46,7 @@ bot=Bot(PAGE_ACCESS_TOKEN)
       }
     }
   }
-}'
+}
 @app.route('/',methods=['GET'])
 def verify():
     #webhook verification
