@@ -104,7 +104,7 @@ def tem(sender_id,message):
       }
     }
   }
-}' "https://graph.facebook.com/v2.6/me/messages?access_token=<PAGE_ACCESS_TOKEN>"
+}
                    
 
     if messaging_text=="option":
