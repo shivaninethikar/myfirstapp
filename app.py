@@ -68,51 +68,6 @@ def webhook():
                         pass
 		
 
-def tem(sender_id,message):
-  payload = {
-    "recipient":{
-    "id":"<PSID>"
-    },
-    "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome!",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We have the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "tall",
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersfancybrownhats.com",
-                "title":"View Website"
-              },{
-                "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }              
-            ]      
-          }
-        ]
-      }
-    }
-  }
-}
-                   
-if messaging_text=="option":
-	payload["recipient"]["id"] = sender_id
-        bot.send_raw(payload)
-else:
-       bot.send_text_message(sender_id, "Under Maintanance)	
-    
-		
 					
                    
               
