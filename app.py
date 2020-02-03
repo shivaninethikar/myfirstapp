@@ -88,7 +88,7 @@ def webhook():
                     bot.send_text_message(sender_id,response) 
                     if messaging_event['message']['text'] == "element":
                         ele["recipient"]["id"] = sender_id
-                        bot.send_raw(str(element))
+                        bot.send_raw(str(ele))
                     else:
                         pass
                     
