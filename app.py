@@ -21,71 +21,10 @@ def verify():
     return "Hello World" ,200
 
 
- payload = {
-  "recipient":{
-    "id":"<PSID>"
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"What do you want to do next?",
-        "buttons":[
-          {
-            "type":"web_url",
-            "url":"https://www.google.com",
-            "title":"Visit Example 1"
-          },
-          {
-            "type":"web_url",
-            "url":"https://www.google.com",
-            "title":"Visit Example 2"
-          }
-        ]
-      }
-    }
-  }
-}
 
 @app.route('/',methods=['POST'])
 
- payload = {
-"recipient":{
-    "id":"<PSID>"
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome!",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We have the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "tall",
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersfancybrownhats.com",
-                "title":"View Website"
-              },{
-                "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }              
-            ]      
-          }
-        ]
-      }
-    }
-  }
-}' "https://graph.facebook.com/v2.6/me/messages?access_token=<PAGE_ACCESS_TOKEN>"
+
 def webhook():
     data = request.get_json() #retrive the data from post request
     log(data) #to print data on the terminal
@@ -122,25 +61,62 @@ def webhook():
                     elif messaging_event['message']['text']==c:  
                         response= "You Too"
                     bot.send_text_message(sender_id,response) 
-                    #if messaging_event['message']['text'] == "element":
-                     #   payoad["recipient"]["id"] = sender_id
-                      #  bot.send_generic_messege(str(payload))
-                    #else:
-                    #    pass
+                    if messaging_event['message']['text'] == "element":
+                        payoad["recipient"]["id"] = sender_id
+                        bot.send_generic_messege(str(payload))
+                    else:
+                        pass
 		
 
-	
-                elif messaging_event.get('postback'):
-			messaging_text=messaging_event['postback']['title']
-                   	print("this is messaging_text:", messaging_text)
-			if messaging_text == "options":
-				bot.send_button_message(sender_id, "How can I help you?", start_buttons_list1)
-		
+		def tem(sender_id,message):
+  payload = {
+    "recipient":{
+    "id":"<PSID>"
+    },
+    "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Welcome!",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
+            "subtitle":"We have the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://petersfancybrownhats.com/view?item=103",
+              "webview_height_ratio": "tall",
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersfancybrownhats.com",
+                "title":"View Website"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }              
+            ]      
+          }
+        ]
+      }
+    }
+  }
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=<PAGE_ACCESS_TOKEN>"
+                   
+
+    if messaging_text=="option":
+          payload["recipient"]["id"] = sender_id
+          return send_raw(payload)
+     else:
+          bot.send_text_message(sender_id, "Under Maintanance)	
+    
 		
 					
                    
-               else:
-                        bot.send_text_message(sender_id, "Under Maintanance")
+              
     return "ok",200  
 
 deg mess()
