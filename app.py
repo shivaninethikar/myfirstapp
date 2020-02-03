@@ -128,7 +128,6 @@ def webhook():
                     #else:
                     #    pass
 		
-	
 
 	
                 elif messaging_event.get('postback'):
