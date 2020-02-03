@@ -85,7 +85,7 @@ def webhook():
                     elif messaging_event['message']['text']==b:  
                         response= "Im Good"
                     elif messaging_event['message']['text']==c:  
-                        response= "Same Too You "
+                        response= "yeah "
                     bot.send_text_message(sender_id,response) 
                     if messaging_event['message']['text'] == "element":
                         ele["recipient"]["id"] = sender_id
