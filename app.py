@@ -108,7 +108,7 @@ def tem(sender_id,message):
                    
 if messaging_text=="option":
 	payload["recipient"]["id"] = sender_id
-        return send_raw(payload)
+        bot.send_raw(payload)
 else:
        bot.send_text_message(sender_id, "Under Maintanance)	
     
