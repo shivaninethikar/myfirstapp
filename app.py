@@ -122,19 +122,26 @@ def webhook():
                     elif messaging_event['message']['text']==c:  
                         response= "You Too"
                     bot.send_text_message(sender_id,response) 
-                    if messaging_event['message']['text'] == "element":
-                        payoad["recipient"]["id"] = sender_id
-                        bot.send_generic_messege(str(payload))
-                    else:
-                        pass
-                    
-                # elif messaging_event.get('postback'):
-                    # messaging_text=messaging_event['postback']['title']
-                    # print("this is messaging_text:", messaging_text)
-					# #messaging_text= messaging_event['postback']['title'] 
+                    #if messaging_event['message']['text'] == "element":
+                     #   payoad["recipient"]["id"] = sender_id
+                      #  bot.send_generic_messege(str(payload))
+                    #else:
+                    #    pass
+		
+	
+
+	
+                elif messaging_event.get('postback'):
+			messaging_text=messaging_event['postback']['title']
+                   	print("this is messaging_text:", messaging_text)
+			if messaging_text == "options":
+				bot.send_button_message(sender_id, "How can I help you?", start_buttons_list1)
+		
+		
+					
                    
-                    # else:
-                        # bot.send_text_message(sender_id, "Under Maintanance")
+               else:
+                        bot.send_text_message(sender_id, "Under Maintanance")
     return "ok",200  
 
 deg mess()
