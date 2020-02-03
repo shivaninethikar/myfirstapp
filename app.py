@@ -77,7 +77,7 @@ def webhook():
                     
                     a="hello"
                     b="how are you"
-                    c="have a good dat"
+                    c="have a good day"
                     
                     response=""
                     if messaging_event['message']['text']==a:                       
