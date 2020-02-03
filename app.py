@@ -72,9 +72,7 @@ def webhook():
                    
               
     return "ok",200  
-
-deg mess()
-    
+ 
 def log(message):
     print(message)
     sys.stdout.flush() #prints compltete op message that store in the buffer
